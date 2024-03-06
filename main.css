@@ -1,0 +1,132 @@
+/* assets/main.css */
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 1.6;
+    margin: 20px;
+    background-color: #131313;
+    color: #14ee00;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+}
+
+a {
+    color: #059ce2;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #f700ff;
+}
+
+header {
+    padding: 1em;
+    background-color: #333;
+    border-bottom: 1px solid #555;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin-right: 1em;
+    font-size: 1.5em;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 1em;
+    font-size: 1.1em;
+}
+
+pre {
+    background-color: #5555;
+    padding: 1em;
+    border-radius: 3px;
+}
+
+/* Button styles */
+nav ul li a {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid #14ee00;
+    border-radius: 3px;
+    background-color: transparent;
+    font-size: 1.1em;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #14ee00;
+    color: #131313;
+}
+
+main {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+section {
+    margin: 20px 0;
+}
+
+section h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.comment {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.comment p {
+    margin: 0;
+}
+
+.comment-author {
+    font-size: 0.8em;
+    color: #999;
+}
+
+.page-info {
+    font-size: 0.8em;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.page-info-text {
+    margin-right: 5px;
+}
+
+.page-info-bar {
+    flex-grow: 1;
+    height: 1px;
+    background-color: #555;
+    margin-left: 5px;
+}
+
+.sidebar-toggle button {
+    background-color: #333;
+    color: #14ee00;
+    border: 1px solid #14ee00;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.sidebar-toggle button:hover {
+    background-color: #14ee00;
+    color: #131313;
+}
+

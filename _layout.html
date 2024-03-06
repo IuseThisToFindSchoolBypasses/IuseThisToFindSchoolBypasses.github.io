@@ -1,0 +1,68 @@
+<!-- _layout.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TCP.WIKI</title>
+    <link rel="stylesheet" href="/assets/main.css">
+</head>
+<body>
+    <header>
+        <h1>TCP.WIKI</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <!-- Add more links to your menubar here -->
+                <li><a href="/what">What</a></li>
+                <li><a href="/who">Who</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="content">
+            {{ .Content }}
+        </div>
+        <hr>
+        {{ if .UseGit }}
+        <div class="page-info">
+            {{- if eq .Author .LastModifier -}}
+              Authored: {{ .Author }} @ {{ .AuthoredDate.Format "2006/01/02" }}
+            {{- else -}}
+              Authored: {{ .Author }} @ {{ .AuthoredDate.Format "2006/01/02" }} - Modified: {{ .LastModifier }} @ {{ .LastModifiedDate.Format "2006/01/02" }}
+            {{- end -}}
+        </div>
+        {{ end }}
+        <div class="comments">
+            <h2>Comments</h2>
+            {{ range .Comments }}
+            <div class="comment">
+                <p>{{ .Content }}</p>
+                <p><small>{{ .Author }} at {{ .Date }}</small></p>
+            </div>
+            {{ end }}
+        </div> 
+
+    </main>
+    <form method="POST" action="/submit_comment">
+        <input type="hidden" name="path" value="{{ .Path }}">
+        <div class="form-group">
+            <label for="author">Name:</label>
+            <input type="text" id="author" name="author">
+        </div>
+        <div class="form-group">
+            <label for="body">Comment:</label>
+            <textarea id="content" name="content"></textarea>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+      <div class="sidebar">
+        <h2>Pages</h2>
+        <ul>
+          {{ range .Pages }}
+            <li><a href="/{{ . }}">{{ . }}</a></li>
+          {{ end }}
+        </ul>
+      </div>
+</body>
+</html>
